@@ -15,7 +15,7 @@ const LUDUS_URL = '/ludus/';
 // Canais diretos da CocaisTech. Os vazios não aparecem na página até receberem o dado real.
 const CHANNELS: { icon: IconName; label: string; value: string; href: string }[] = [
   { icon: 'message', label: 'WhatsApp', value: '', href: '' },
-  { icon: 'mail', label: 'E-mail', value: '', href: '' },
+  { icon: 'mail', label: 'E-mail', value: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
   { icon: 'social', label: 'Instagram ou LinkedIn', value: '', href: '' },
 ];
 
