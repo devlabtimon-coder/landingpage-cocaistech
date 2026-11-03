@@ -3,7 +3,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 
-// Duas páginas no mesmo build: CocaisTech em / e Ludus em /ludus/.
+// Páginas do build: CocaisTech em /, Ludus em /ludus/ e os documentos legais do app em /ludus/termos/ e /ludus/privacidade/.
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   build: {
@@ -11,6 +11,8 @@ export default defineConfig({
       input: {
         cocais: resolve(__dirname, 'index.html'),
         ludus: resolve(__dirname, 'ludus/index.html'),
+        termos: resolve(__dirname, 'ludus/termos/index.html'),
+        privacidade: resolve(__dirname, 'ludus/privacidade/index.html'),
       },
     },
   },

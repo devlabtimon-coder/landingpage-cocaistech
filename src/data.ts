@@ -77,7 +77,7 @@ export const SEASON_LEVELS = [
 export const POINT_RULES = [
   { label: 'Retirada oficial confirmada', value: +5 },
   { label: 'Devolução no prazo', value: +5 },
-  { label: 'Devolução com atraso', value: +2 },
+  { label: 'Devolução com atraso', value: -10 },
   { label: 'Dano ou peça perdida', value: -20 },
 ];
 

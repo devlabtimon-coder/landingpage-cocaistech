@@ -1,11 +1,13 @@
 # CocaisTech + Ludus · Landing pages
 
-Duas páginas no mesmo projeto (Vite multi-page):
+Páginas no mesmo projeto (Vite multi-page):
 
 | Rota | Página | Código |
 |---|---|---|
 | `/` | CocaisTech | `index.html`, `src/cocais/` |
 | `/ludus/` | Projeto Ludus | `ludus/index.html`, `src/` (componentes em `src/components/`) |
+| `/ludus/termos/` | Termos de Uso do app | `ludus/termos/index.html`, `src/legal/` |
+| `/ludus/privacidade/` | Política de Privacidade do app | `ludus/privacidade/index.html`, `src/legal/` |
 
 A seção e o item de menu "Projeto Ludus" da CocaisTech levam para `/ludus/`, e o crédito no rodapé do Ludus volta para `/`.
 
@@ -30,3 +32,8 @@ clicar em confirmar uma vez para os pedidos seguintes chegarem.
 
 Para usar outro destino, defina `VITE_CONTACT_ENDPOINT` com uma URL que aceite `POST` JSON e
 responda `{ "success": "true" }`.
+
+## Termos e Política de Privacidade
+O texto fica em `src/legal/content.ts` e é o mesmo das telas de Termos e de Privacidade do app
+(`Sistema-Ludus/src/screens/Terms`). Ao mudar uma regra, atualize os dois e suba a `version` e a
+`updatedAt` do documento. A URL `/ludus/privacidade/` é a informada na App Store e na Play Store.

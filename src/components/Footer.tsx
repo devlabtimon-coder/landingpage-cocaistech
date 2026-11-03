@@ -3,7 +3,8 @@ import { ArrowRight } from 'lucide-react';
 import logo from '../assets/logo-ludus.webp';
 import { CONTACT_EMAIL, NAV } from '../data';
 
-export function Footer() {
+// base: prefixo dos links de navegação quando o rodapé aparece fora da página do Ludus (ex.: /ludus/ nos termos).
+export function Footer({ base = '' }: { base?: string }) {
   return (
     <footer className="bg-navy pt-16 pb-28 text-white lg:pb-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -21,7 +22,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5">
               {NAV.map((n) => (
                 <li key={n.href}>
-                  <a href={n.href} className="text-[15px] text-[#C9CCF2] transition-colors hover:text-white">
+                  <a href={`${base}${n.href}`} className="text-[15px] text-[#C9CCF2] transition-colors hover:text-white">
                     {n.label}
                   </a>
                 </li>
@@ -43,7 +44,17 @@ export function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col gap-3 border-t border-white/10 pt-8 text-sm text-[#A9ADE0] md:flex-row md:justify-between">
-          <p>© {new Date().getFullYear()} Cocais Tech. Todos os direitos reservados.</p>
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
+            <p>© {new Date().getFullYear()} Cocais Tech. Todos os direitos reservados.</p>
+            <nav aria-label="Documentos legais" className="flex gap-5">
+              <a href="/ludus/termos/" className="transition-colors hover:text-white">
+                Termos de Uso
+              </a>
+              <a href="/ludus/privacidade/" className="transition-colors hover:text-white">
+                Privacidade
+              </a>
+            </nav>
+          </div>
           <p className="shrink-0">
             Desenvolvido por{' '}
             <a href="/" className="font-bold text-white underline-offset-4 hover:underline">
