@@ -1,0 +1,45 @@
+# Publica o site (CocaisTech em / e Ludus em /ludus/) na Hostinger a cada push na main: gera o build e grava o
+# resultado na branch deploy-hostinger. O Git da Hostinger (site cocaistech.com › Implantações) puxa essa branch
+# com a implantação automática ligada.
+name: Deploy Hostinger
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-hostinger
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run build
+        env:
+          VITE_CONTACT_ENDPOINT: ${{ vars.VITE_CONTACT_ENDPOINT }}
+          VITE_COCAIS_CONTACT_ENDPOINT: ${{ vars.VITE_COCAIS_CONTACT_ENDPOINT }}
+
+      # Um commit só, sem histórico: a branch guarda apenas o build mais recente.
+      - name: Gravar o build na branch deploy-hostinger
+        working-directory: dist
+        run: |
+          git init -q -b deploy-hostinger
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "build: ${GITHUB_SHA::7}"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" deploy-hostinger
