@@ -29,8 +29,8 @@ export const TERMS: LegalDoc = {
   title: 'Termos de Uso',
   summary:
     'Regras para alugar jogos pelo App Ludus no IFMA Campus Timon: quem pode usar, como funcionam a retirada e a devolução, os pontos e as categorias.',
-  version: '1.1',
-  updatedAt: '2026-11-02',
+  version: '1.2',
+  updatedAt: '2026-11-09',
   sections: [
     {
       id: 'quem-pode-usar',
@@ -150,6 +150,10 @@ export const TERMS: LegalDoc = {
             'Cada código vale uma única vez.',
             'O código pode ser usado até o fim da temporada seguinte.',
           ],
+        },
+        {
+          type: 'p',
+          text: 'As temporadas, o ranking e os brindes são organizados pela biblioteca do IFMA Campus Timon, sem custo e sem necessidade de compra. A Apple e o Google não patrocinam nem participam deles de nenhuma forma.',
         },
       ],
     },
