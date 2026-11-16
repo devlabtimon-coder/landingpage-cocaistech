@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import adminDashboard from '../assets/prints/admin-dashboard.webp';
 import appHome from '../assets/prints/app-home.webp';
+import { StoreBadges } from './StoreBadges';
 
 const ADMIN_FEATURES = [
   { icon: LayoutGrid, text: 'Dashboard com aluguéis ativos, atrasos e aprovações pendentes' },
@@ -51,7 +52,13 @@ export function InPractice() {
 
         <div className="mt-14 grid gap-10 md:grid-cols-2">
           <FeatureList title="No painel do gestor" items={ADMIN_FEATURES} />
-          <FeatureList title="No app do usuário" items={APP_FEATURES} />
+          <div>
+            <FeatureList title="No app do usuário" items={APP_FEATURES} />
+            <div id="baixar-app">
+              <p className="mt-7 text-sm font-bold text-ink-mute">Em uso no IFMA Campus Timon. Baixe o app:</p>
+              <StoreBadges className="mt-3" />
+            </div>
+          </div>
         </div>
 
         <div className="mt-12 flex justify-center">

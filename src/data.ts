@@ -90,3 +90,9 @@ export const NAV = [
 ];
 
 export const CONTACT_EMAIL = 'nara.chaves@ifma.edu.br';
+
+// O app publicado nas lojas (disponível só no Brasil).
+export const STORE_LINKS = {
+  appStore: 'https://apps.apple.com/br/app/ludus-jogos-de-tabuleiro/id6829882250',
+  googlePlay: 'https://play.google.com/store/apps/details?id=com.ludus.android',
+};
