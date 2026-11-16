@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import logo from '../assets/logo-ludus.webp';
 import { CONTACT_EMAIL, NAV } from '../data';
+import { StoreBadges } from './StoreBadges';
 
 // base: prefixo dos links de navegação quando o rodapé aparece fora da página do Ludus (ex.: /ludus/ nos termos).
 export function Footer({ base = '' }: { base?: string }) {
@@ -15,6 +16,7 @@ export function Footer({ base = '' }: { base?: string }) {
               Gestão de acervos de jogos de tabuleiro com aprovação de cadastro, níveis de acesso e temporadas.
               Nascido e em uso no IFMA Campus Timon.
             </p>
+            <StoreBadges className="mt-6" />
           </div>
 
           <nav aria-label="Rodapé" className="md:col-span-3">

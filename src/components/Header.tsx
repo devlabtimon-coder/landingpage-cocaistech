@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, Smartphone, X } from 'lucide-react';
 import logo from '../assets/logo-ludus.webp';
 import { NAV } from '../data';
+import { DownloadAppLink } from './StoreBadges';
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -37,23 +38,30 @@ export function Header() {
           ))}
         </nav>
 
-        <a
-          href="#contato"
-          className="hidden rounded-2xl bg-yellow px-5 py-3 text-[15px] font-extrabold text-navy shadow-[0_6px_16px_rgba(251,188,4,0.3)] transition-colors hover:bg-yellow-600 lg:inline-flex"
-        >
-          Fale com a equipe
-        </a>
+        <div className="flex items-center gap-3">
+          <DownloadAppLink className="inline-flex h-11 items-center gap-2 rounded-2xl border-2 border-white/70 px-4 text-[15px] font-extrabold text-white transition-colors hover:border-white hover:bg-white hover:text-indigo lg:h-12">
+            <Smartphone size={18} strokeWidth={2.5} />
+            Baixar o app
+          </DownloadAppLink>
 
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          className="inline-flex size-11 items-center justify-center rounded-2xl bg-white/10 text-white lg:hidden"
-          aria-expanded={open}
-          aria-controls="menu-mobile"
-          aria-label={open ? 'Fechar menu' : 'Abrir menu'}
-        >
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </button>
+          <a
+            href="#contato"
+            className="hidden rounded-2xl bg-yellow px-5 py-3 text-[15px] font-extrabold text-navy shadow-[0_6px_16px_rgba(251,188,4,0.3)] transition-colors hover:bg-yellow-600 lg:inline-flex"
+          >
+            Fale com a equipe
+          </a>
+
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className="inline-flex size-11 items-center justify-center rounded-2xl bg-white/10 text-white lg:hidden"
+            aria-expanded={open}
+            aria-controls="menu-mobile"
+            aria-label={open ? 'Fechar menu' : 'Abrir menu'}
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </div>
 
       {open && (
